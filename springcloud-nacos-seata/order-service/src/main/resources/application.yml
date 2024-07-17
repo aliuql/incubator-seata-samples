@@ -1,0 +1,56 @@
+server:
+  port: 9093
+
+spring:
+  application:
+    name: order-service
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://mysql.demo:3306/seata?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: seata
+      password: 123456
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos.demo:2848
+        username: nacos
+        password: 123456
+        namespace: test
+        group: DEFAULT_GROUP
+logging:
+  level:
+    io.seata: debug
+
+feign:
+  httpclient:
+    enabled: true
+
+ribbon:
+  ConnectionTimeout: 10000
+  ReadTimeout: 45000
+  OkToRetryOnAllOperations: false
+
+seata:
+  enabled: true
+  application-id: ${spring.application.name}
+  tx-service-group: my_test_tx_group
+  config:
+    type: nacos
+    nacos:
+      server-addr: nacos.demo:2848
+      username: nacos
+      password: 123456
+      namespace: test
+      group: SEATA_GROUP
+      data-id: seata.properties
+  registry:
+    type: nacos
+    nacos:
+      server-addr: nacos.demo:2848
+      username: nacos
+      password: 123456
+      namespace: test
+      group: SEATA_GROUP
+      application: seata-server
