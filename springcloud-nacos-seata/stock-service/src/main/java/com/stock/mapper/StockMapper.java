@@ -18,7 +18,6 @@ package com.stock.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.stock.entity.Stock;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 /**
  * Program Name: springcloud-nacos-seata
@@ -31,7 +30,6 @@ import org.springframework.stereotype.Repository;
  * @date 2019/8/28 4:05 PM
  */
 @Mapper
-@Repository
 public interface StockMapper extends BaseMapper<Stock> {
 
 }

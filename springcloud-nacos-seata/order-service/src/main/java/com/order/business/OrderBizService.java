@@ -26,10 +26,12 @@ public class OrderBizService {
 
     @Autowired StockClient stockClient;
 
-    @GlobalTransactional(rollbackFor = Exception.class, timeoutMills = 6000000)
+    @GlobalTransactional(rollbackFor = Exception.class)
     public void testGlobalTransaction() {
         String code = UuidUtils.generateUuid().replace("-", "");
         stockClient.insert(code);
-        stockClient.update(code);
+        //stockClient.update(code);
+        System.out.println("prepare commit global");
+        throw new RuntimeException("safdasdf");
     }
 }

@@ -13,18 +13,20 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.stock;
+package com.order;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
+@EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
-public class StockServiceApplication {
+public class OrderApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(StockServiceApplication.class, args);
+        SpringApplication.run(OrderApplication.class, args);
     }
 
 }

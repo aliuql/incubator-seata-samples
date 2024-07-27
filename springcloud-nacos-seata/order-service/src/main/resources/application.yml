@@ -28,9 +28,14 @@ feign:
     enabled: true
 
 ribbon:
-  ConnectionTimeout: 10000
-  ReadTimeout: 45000
+  ConnectTimeout: 10000
+  ReadTimeout: 44000
   OkToRetryOnAllOperations: false
+
+stock-service:
+  ribbon:
+    ConnectTimeout: 5000
+    ReadTimeout: 7200000
 
 seata:
   enabled: true
